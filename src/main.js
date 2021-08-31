@@ -1,7 +1,5 @@
 import p5 from "p5";
 
-let counter = 0;
-
 let board = [
   ["", "", ""],
   ["", "", ""],
@@ -150,15 +148,12 @@ const sketch = (s) => {
         }
       }
     }
-    console.log(counter);
-    counter = 0;
     board[move.i][move.j] = currentPlayer;
     currentPlayer =
       currentPlayer == players.player1 ? players.player2 : players.player1;
   };
 
   const minimax = (boardToPass, alpha, beta, isMaximizingPlayer) => {
-    counter++;
     let res = checkWinner();
     if (res !== null) {
       return endValues[res];
